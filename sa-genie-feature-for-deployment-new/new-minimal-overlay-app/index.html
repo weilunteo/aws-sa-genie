@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: rgba(255, 255, 255, 0.8);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+            white-space: nowrap;
+            user-select: none;
+            cursor: default;
+            -webkit-app-region: drag;
+            max-width: 100%; /* Ensure content doesn't force window wider */
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .shortcuts {
+            -webkit-app-region: drag; /* Make only shortcuts draggable */
+        }
+
+        .content-area {
+            margin-top: 8px;
+            min-height: 30px; /* Give some space for spinner/text */
+            position: relative; /* For positioning spinner */
+            word-wrap: break-word; /* Allow long text to wrap */
+            white-space: normal; /* Override body's nowrap for response */
+            flex: 1;
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-right: 8px; /* Space for scrollbar */
+            margin-bottom: 16px; /* Fix scrollbar and text cut-off */
+            -webkit-app-region: no-drag; /* Make content area non-draggable for scrolling */
+        }
+
+        #loading-indicator {
+            display: none; /* Hidden by default */
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            border-top: 3px solid rgba(255, 255, 255, 0.8);
+            width: 16px;
+            height: 16px;
+            animation: spin 1s linear infinite;
+            margin: 5px auto; /* Center it */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #response-display {
+            display: block; /* Visible by default, content makes it appear */
+            margin-top: 5px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        .shortcuts {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .shortcut {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .key {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin-right: 4px;
+        }
+
+        .action {
+            color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="shortcuts">
+        <div class="shortcut">
+            <span class="key">⌘+B</span>
+            <span class="action">Show/Hide</span>
+        </div>
+        <div class="shortcut">
+            <span class="key">⌘+Q</span>
+            <span class="action">Quit</span>
+        </div>
+        <div class="shortcut">
+            <span class="key">⌘+↑↓←→</span>
+            <span class="action">Move</span>
+        </div>
+        <div class="shortcut">
+            <span class="key">⌘+R</span>
+            <span class="action">Record</span>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <div id="loading-indicator"></div>
+        <div id="response-display"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
+    <script src="./renderer.js"></script>
+</body>
+</html>

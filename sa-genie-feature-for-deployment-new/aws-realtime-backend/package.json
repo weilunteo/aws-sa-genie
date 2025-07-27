@@ -1,0 +1,30 @@
+{
+  "name": "aws-realtime-backend",
+  "version": "1.0.0",
+  "description": "AWS CDK infrastructure for real-time DynamoDB updates",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy",
+    "synth": "cdk synth"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.115",
+    "@types/node": "^20.0.0",
+    "aws-cdk": "^2.80.0",
+    "aws-cdk-lib": "^2.80.0",
+    "constructs": "^10.2.0",
+    "esbuild": "^0.25.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1377.0"
+  }
+}

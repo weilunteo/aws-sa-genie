@@ -1,0 +1,18 @@
+{
+  "name": "bedrock-overlay-app",
+  "version": "1.0.0",
+  "description": "Minimal overlay app for Amazon Bedrock",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.496.0",
+    "electron": "^28.1.4",
+    "uuid": "^9.0.1",
+    "ws": "^8.18.2"
+  }
+}

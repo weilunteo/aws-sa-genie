@@ -1,0 +1,18 @@
+# General
+.DS_Store
+.env
+.env.*
+*.log
+
+# Dependencies in any subfolder
+**/node_modules/
+
+# Build output
+**/build/
+**/dist/
+
+# AWS CDK output
+**/cdk.out/
+
+# IDE settings
+.vscode/
